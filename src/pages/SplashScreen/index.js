@@ -1,11 +1,18 @@
 import React from 'react';
-import {View, Image} from 'react-native';
-import dokterku from '../../assets/logo/dokterku.png';
+import {StyleSheet, Image, View} from 'react-native';
+import Dokterku from '../../assets/logo/dokterku.png';
 
 export default function SplashScreen() {
   return (
     <View>
-      <Image source={dokterku} />
+      <Image source={Dokterku} style={styles.logo} />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  logo: {
+    with: 300,
+    height: 300,
+  },
+});
