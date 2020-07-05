@@ -1,23 +1,44 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
-import {Assets1} from '../../assets';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ImageBackground,
+  Dimensions,
+} from 'react-native';
+import {Assets1, BG_GS} from '../../assets';
 import {Button} from '../../component';
 
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 const GetStarted = () => {
   return (
-    <View style={styles.page}>
-      <View style={{alignItems: 'center'}}>
-        <Image source={Assets1} style={styles.image} />
-        <Text style={styles.title}>
-          Konsultasi dengan dokter jadi lebih mudah & fleksibel{' '}
-        </Text>
+    <ImageBackground source={BG_GS} style={styles.page}>
+      <Assets1 style={styles.image} />
+      <View style={styles.containerButton}>
+        <View>
+          <Text
+            style={{
+              color: '#70A0B2',
+              fontSize: 44,
+              fontWeight: 'bold',
+              textAlign: 'center',
+              marginVertical: 28,
+            }}>
+            DokterKu
+          </Text>
+          <Text style={styles.title}>
+            Konsultasi dengan dokter jadi lebih mudan & fleksibel
+          </Text>
+        </View>
+        <View>
+          <Button title="Get Started" />
+          <View style={{height: 16}} />
+          <Button title="Sign In" type="secondary" />
+        </View>
       </View>
-      <View style={{alignItems: 'center', paddingBottom: 45}}>
-        <Button title="Get Started" />
-        <View style={{height: 16}} />
-        <Button title="Sign In" type="secondary" />
-      </View>
-    </View>
+    </ImageBackground>
   );
 };
 
@@ -27,17 +48,27 @@ const styles = StyleSheet.create({
   page: {
     flex: 1,
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   image: {
-    width: 348,
-    height: 259,
-    marginTop: 70,
+    width: width - 61,
+    height: height - 472,
+    marginTop: 63,
   },
   title: {
     fontSize: 24,
     fontWeight: '600',
     textAlign: 'center',
     width: 305,
-    marginTop: 74,
+  },
+  containerButton: {
+    alignItems: 'center',
+    paddingBottom: 33,
+    width: width - 61,
+    height: height - 404,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    justifyContent: 'space-between',
+    marginBottom: 16,
   },
 });
