@@ -1,18 +1,17 @@
 import React from 'react';
 import {
+  Dimensions,
+  ImageBackground,
   StyleSheet,
   Text,
   View,
-  Image,
-  ImageBackground,
-  Dimensions,
 } from 'react-native';
 import {Assets1, BG_GS} from '../../assets';
 import {Button} from '../../component';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
-const GetStarted = () => {
+const GetStarted = ({navigation}) => {
   return (
     <ImageBackground source={BG_GS} style={styles.page}>
       <Assets1 style={styles.image} />
@@ -35,7 +34,13 @@ const GetStarted = () => {
         <View>
           <Button title="Get Started" />
           <View style={{height: 16}} />
-          <Button title="Sign In" type="secondary" />
+          <Button
+            title="Sign In"
+            type="secondary"
+            onPress={() => {
+              navigation.navigate('SignIn');
+            }}
+          />
         </View>
       </View>
     </ImageBackground>

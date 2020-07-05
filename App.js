@@ -1,6 +1,13 @@
 import React from 'react';
-import {GetStarted} from './src/pages';
+import {NavigationContainer} from '@react-navigation/native';
+import Router from './src/Router';
 
-export default function App() {
-  return <GetStarted />;
-}
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Router />
+    </NavigationContainer>
+  );
+};
+
+export default App;

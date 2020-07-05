@@ -2,10 +2,10 @@ import React, {useEffect} from 'react';
 import {StyleSheet, Image, View, Text} from 'react-native';
 import {Dokterku_logo} from '../../assets';
 
-export default function SplashScreen() {
+export default function SplashScreen({navigation}) {
   useEffect(() => {
     setTimeout(() => {
-      console.log('hai');
+      navigation.navigate('GetStarted');
     }, 3000);
   });
   return (
