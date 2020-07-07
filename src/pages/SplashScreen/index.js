@@ -5,9 +5,9 @@ import {Dokterku_logo} from '../../assets';
 export default function SplashScreen({navigation}) {
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('GetStarted');
+      navigation.replace('GetStarted');
     }, 3000);
-  });
+  }, []);
   return (
     <View style={styles.page}>
       <Image source={Dokterku_logo} style={styles.logo} />
