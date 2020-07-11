@@ -1,30 +1,32 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  ImageBackground,
-  Image,
-  Dimensions,
-  ScrollView,
-  Text,
-} from 'react-native';
+import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
 import {BG_LI, Dokterku} from '../../assets';
-import {Input} from '../../component';
+import {Anchor, Button, Input, Spacing} from '../../component';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const SignIn = () => {
   return (
-    <ScrollView style={{backgroundColor: 'pink'}}>
+    <View>
       <Image source={BG_LI} style={styles.page} />
       <View style={styles.container}>
         <Image source={Dokterku} />
         <Text style={styles.title}>Masuk dan mulai berkonsultasi</Text>
         <View style={styles.card}>
           <Input label="Email Address" />
+          <Spacing height={24} />
+          <Input label="Password" type={true} />
+          <Spacing height={24} />
+          <Anchor title="Lupa Password" />
+          <Spacing height={33} />
+          <View style={{alignItems: 'center'}}>
+            <Button title="Sign In" />
+            <Spacing height={24} />
+            <Anchor title="Create New Account" type="secondary" />
+          </View>
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
     width: 194,
     position: 'absolute',
     right: 0,
-    top: 165,
+    top: 195,
     marginRight: 29,
   },
   card: {
@@ -59,5 +61,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginLeft: 25,
     marginTop: 80,
+    paddingHorizontal: 22,
+    paddingVertical: 32,
   },
 });
