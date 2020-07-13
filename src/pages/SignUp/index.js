@@ -23,7 +23,7 @@ const SignUp = ({navigation}) => {
         <Spacing height={27} />
         <Input label="Password" type={true} />
         <Spacing height={39} />
-        <View style={{alignItems: 'center'}}>
+        <View style={styles.conatinerButton}>
           <Button title="Sign Up" />
         </View>
       </View>
@@ -49,5 +49,8 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: 47,
     marginTop: 39,
+  },
+  containerButton: {
+    alignContent: 'center',
   },
 });
