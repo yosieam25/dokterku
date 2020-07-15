@@ -1,11 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
-import {Header, Button, Anchor} from '../../component';
+import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
+import {Header, Button, Anchor, Spacing} from '../../component';
 import {UploadPhotoImg, AddPhoto} from '../../assets';
 
 const UploadPhoto = ({navigation}) => {
   return (
-    <View>
+    <View style={styles.content}>
       <Header
         onPress={() => {
           navigation.goBack();
@@ -20,8 +20,9 @@ const UploadPhoto = ({navigation}) => {
         <Text style={styles.name}>Yosie Abdul Muzanil</Text>
         <Text style={styles.job}>FrontEnd Progammer</Text>
       </View>
-      <View>
+      <View style={styles.comtainerButton}>
         <Button title="continue" />
+        <Spacing height={26} />
         <Anchor title="Skip for this" />
       </View>
     </View>
@@ -31,6 +32,7 @@ const UploadPhoto = ({navigation}) => {
 export default UploadPhoto;
 
 const styles = StyleSheet.create({
+  content: {justifyContent: 'space-between', flex: 1},
   ImageUpload: {
     width: 150,
     height: 150,
@@ -61,5 +63,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     opacity: 0.5,
     marginTop: 10,
+  },
+  comtainerButton: {
+    alignItems: 'center',
+    paddingBottom: 58,
   },
 });
