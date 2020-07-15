@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
-import {Header, Button, Anchor, Spacing} from '../../component';
-import {UploadPhotoImg, AddPhoto} from '../../assets';
+import {Image, StyleSheet, Text, View} from 'react-native';
+import {AddPhoto, UploadPhotoImg} from '../../assets';
+import {Anchor, Button, Header, Spacing} from '../../component';
 
 const UploadPhoto = ({navigation}) => {
   return (
