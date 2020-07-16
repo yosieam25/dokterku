@@ -11,13 +11,14 @@ import {
   Hospitals,
   Messages,
 } from '../pages';
+import {BottomNavigation} from '../component';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const MainApp = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator tabBar={props => <BottomNavigation {...props} />}>
       <Tab.Screen name="Doktor" component={Doktor} />
       <Tab.Screen name="Messages" component={Messages} />
       <Tab.Screen name="Hospitals" component={Hospitals} />
