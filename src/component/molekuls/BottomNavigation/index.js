@@ -4,7 +4,7 @@ import {TabItems} from '../../atoms';
 
 const BottomNavigation = ({state, descriptors, navigation}) => {
   return (
-    <View style={{flexDirection: 'row'}}>
+    <View style={styles.bottom}>
       {state.routes.map((route, index) => {
         const {options} = descriptors[route.key];
         const label =
@@ -36,20 +36,13 @@ const BottomNavigation = ({state, descriptors, navigation}) => {
         };
 
         return (
-          <TabItems />
-          //   <TouchableOpacity
-          //       accessibilityRole="button"
-          //       accessibilityStates={isFocused ? ['selected'] : []}
-          //       accessibilityLabel={options.tabBarAccessibilityLabel}
-          //       testID={options.tabBarTestID}
-          //       onPress={onPress}
-          //       onLongPress={onLongPress}
-          //       style={{ flex: 1 }}
-          //   >
-          //       <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
-          //           {label}
-          //       </Text>
-          //   </TouchableOpacity>
+          <TabItems
+            key={index}
+            title={label}
+            onPress={onPress}
+            onLongPress={onLongPress}
+            active={isFocused}
+          />
         );
       })}
     </View>
@@ -58,4 +51,15 @@ const BottomNavigation = ({state, descriptors, navigation}) => {
 
 export default BottomNavigation;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  bottom: {
+    flexDirection: 'row',
+    backgroundColor: '#70A0B2',
+    justifyContent: 'space-between',
+    height: 64,
+    borderRadius: 20,
+    marginHorizontal: 17,
+    paddingHorizontal: 10,
+    alignItems: 'center',
+  },
+});
