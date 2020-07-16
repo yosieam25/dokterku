@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {TabItems} from '../../atoms';
 
 const BottomNavigation = ({state, descriptors, navigation}) => {
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     height: 64,
     borderRadius: 20,
     marginHorizontal: 17,
+    marginVertical: 20,
     paddingHorizontal: 10,
     alignItems: 'center',
   },
