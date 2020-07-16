@@ -5,7 +5,7 @@ import {Anchor, Button, Input, Spacing} from '../../component';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
-const SignIn = () => {
+const SignIn = ({navigation}) => {
   return (
     <View>
       <Image source={BG_LI} style={styles.page} />
@@ -20,7 +20,12 @@ const SignIn = () => {
           <Anchor title="Lupa Password" />
           <Spacing height={33} />
           <View style={{alignItems: 'center'}}>
-            <Button title="Sign In" />
+            <Button
+              title="Sign In"
+              onPress={() => {
+                navigation.replace('MainApp');
+              }}
+            />
             <Spacing height={24} />
             <Anchor title="Create New Account" type="secondary" />
           </View>
