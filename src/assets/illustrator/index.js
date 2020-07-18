@@ -6,6 +6,9 @@ import DokterAnak from './DokterAnak.png';
 import DokterObat from './DokterObat.png';
 import DokterUmum from './DokterUmum.png';
 import DokterPsikiater from './DokterPsikiater.png';
+import ProfilMan from './ProfilMan.png';
+import ProfilWoman from './ProfilWoman.png';
+import Star from './Star.png';
 
 export {
   Assets1,
@@ -16,4 +19,7 @@ export {
   DokterObat,
   DokterUmum,
   DokterPsikiater,
+  ProfilMan,
+  ProfilWoman,
+  Star,
 };

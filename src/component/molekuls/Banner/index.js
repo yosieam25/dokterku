@@ -1,7 +1,8 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
 import {BannerHome} from '../../../assets';
 
+const width = Dimensions.get('window').width;
 const Banner = () => {
   return (
     <View>
@@ -18,7 +19,7 @@ export default Banner;
 
 const styles = StyleSheet.create({
   banner: {
-    width: 375,
+    width: width - 44,
     height: 176,
   },
   title: {
