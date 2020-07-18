@@ -45,8 +45,9 @@ export default Doktor;
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginHorizontal: 23,
+    paddingHorizontal: 23,
     flex: 1,
+    backgroundColor: 'white',
   },
   title: {
     fontSize: 18,
