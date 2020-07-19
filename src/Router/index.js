@@ -10,6 +10,7 @@ import {
   Doktor,
   Hospitals,
   Messages,
+  Chatting,
 } from '../pages';
 import {BottomNavigation} from '../component';
 
@@ -57,6 +58,11 @@ const Router = () => {
       <Stack.Screen
         name="MainApp"
         component={MainApp}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Chatting"
+        component={Chatting}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

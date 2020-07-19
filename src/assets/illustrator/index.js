@@ -9,6 +9,7 @@ import DokterPsikiater from './DokterPsikiater.png';
 import ProfilMan from './ProfilMan.png';
 import ProfilWoman from './ProfilWoman.png';
 import Star from './Star.png';
+import BGChat from './BGChat.png';
 
 export {
   Assets1,
@@ -22,4 +23,5 @@ export {
   ProfilMan,
   ProfilWoman,
   Star,
+  BGChat,
 };

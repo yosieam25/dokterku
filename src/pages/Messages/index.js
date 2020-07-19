@@ -2,12 +2,16 @@ import React from 'react';
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import {Spacing, CardMessage} from '../../component';
 
-const Messages = () => {
+const Messages = ({navigation}) => {
   return (
     <ScrollView style={styles.wrapper}>
       <Spacing height={25} />
       <Text style={styles.messages}>Messages</Text>
-      <CardMessage />
+      <CardMessage
+        onPress={() => {
+          navigation.navigate('Chatting');
+        }}
+      />
     </ScrollView>
   );
 };

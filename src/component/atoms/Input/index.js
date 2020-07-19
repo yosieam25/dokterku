@@ -1,7 +1,11 @@
 import React from 'react';
 import {StyleSheet, Text, View, TextInput} from 'react-native';
+import InputChat from './InputChat';
 
 const Input = ({label, type}) => {
+  if (type === 'chatting') {
+    return <InputChat />;
+  }
   return (
     <View>
       <Text style={styles.label}> {label} </Text>

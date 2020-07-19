@@ -7,6 +7,8 @@ import MessageActive from './MessageActive.png';
 import MessageInactive from './MessageInactive.png';
 import HospitalActive from './HospitalActive.png';
 import HospitalInactive from './HospitalInactive.png';
+import BackIconWhite from './BackIconWhite.png';
+import Send from './Send.png';
 
 export {
   BackIcon,
@@ -18,4 +20,6 @@ export {
   MessageInactive,
   HospitalActive,
   HospitalInactive,
+  BackIconWhite,
+  Send,
 };

@@ -1,17 +1,24 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import {ProfilMan} from '../../../assets';
 
 const width = Dimensions.get('window').width;
-const CardMessage = () => {
+const CardMessage = ({onPress}) => {
   return (
-    <View style={styles.wrapper}>
+    <TouchableOpacity style={styles.wrapper} onPress={onPress}>
       <Image source={ProfilMan} style={styles.image} />
       <View style={styles.wrapperChat}>
         <Text style={styles.name}>Dr Ong Seong Woo</Text>
         <Text style={styles.chat}>Ada yang bisa dibantu? saya...</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
