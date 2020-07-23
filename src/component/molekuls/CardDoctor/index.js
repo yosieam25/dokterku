@@ -1,10 +1,17 @@
 import React from 'react';
-import {StyleSheet, Text, View, Dimensions, Image} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import {ProfilMan, Star, ProfilWoman} from '../../../assets';
 import {Spacing} from '../../atoms';
 
 const width = Dimensions.get('window').width;
-const CardDoctor = ({name, gender, job}) => {
+const CardDoctor = ({name, gender, job, onPress}) => {
   const Rating = () => {
     const data = Array.from({length: 5});
     return (
@@ -33,7 +40,9 @@ const CardDoctor = ({name, gender, job}) => {
         <Text style={styles.job}>{job}</Text>
         <View style={styles.wrapperBottom}>
           <Rating />
-          <Text style={styles.button}>Lihat</Text>
+          <TouchableOpacity onPress={onPress}>
+            <Text style={styles.button}>Lihat</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>

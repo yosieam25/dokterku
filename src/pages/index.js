@@ -7,6 +7,8 @@ import Doktor from './Doktor';
 import Hospitals from './Hospitals';
 import Messages from './Messages';
 import Chatting from './Chatting';
+import ListDoctor from './ListDoctor';
+import DetailDoctor from './DetailDoctor';
 
 export {
   SplashScreen,
@@ -18,4 +20,6 @@ export {
   Hospitals,
   Messages,
   Chatting,
+  ListDoctor,
+  DetailDoctor,
 };

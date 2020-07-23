@@ -9,19 +9,21 @@ import {
   ScrollView,
 } from 'react-native';
 import {BGChat} from '../../assets';
-import {Header, Input} from '../../component';
+import {Header, Input, Chat} from '../../component';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
-const Chatting = () => {
+const Chatting = ({navigation}) => {
   return (
     <View style={styles.wrapper}>
       <Image source={BGChat} style={styles.background} />
       <View style={styles.header}>
-        <Header type="chatting" />
+        <Header type="chatting" onPress={() => navigation.goBack()} />
       </View>
       <ScrollView>
-        <Text>hai</Text>
+        <Chat Isme />
+        <Chat others />
+        <Chat Isme />
       </ScrollView>
       <View style={styles.input}>
         <Input type="chatting" />

@@ -8,7 +8,7 @@ import {
   CardDoctor,
 } from '../../component';
 
-const Doktor = () => {
+const Doktor = ({navigation}) => {
   return (
     <ScrollView style={styles.wrapper} showsVerticalScrollIndicator={false}>
       <Profil />
@@ -18,7 +18,10 @@ const Doktor = () => {
       <Text style={styles.title}>Categories</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={styles.wrapperCategories}>
-          <CardCategories title="Dokter Umum" />
+          <CardCategories
+            title="Dokter Umum"
+            onPress={() => navigation.navigate('ListDoctor')}
+          />
           <Spacing width={18} />
           <CardCategories title="Dokter Anak" />
           <Spacing width={18} />
@@ -29,11 +32,17 @@ const Doktor = () => {
       </ScrollView>
       <Spacing height={22} />
       <Text style={styles.title}>Top Doctors</Text>
-      <CardDoctor name="Dr Ong Seong Woo" job="Dokter Umum" gender="man" />
+      <CardDoctor
+        name="Dr Ong Seong Woo"
+        job="Dokter Umum"
+        gender="man"
+        onPress={() => navigation.navigate('DetailDoctor')}
+      />
       <CardDoctor
         name="Dr. Yosina Quratul Aini"
         job="Dokter Anak"
         gender="woman"
+        onPress={() => navigation.navigate('DetailDoctor')}
       />
       <CardDoctor name="Dr Reza Renaldi" job="Dokter Obat" gender="man" />
       <Spacing height={20} />

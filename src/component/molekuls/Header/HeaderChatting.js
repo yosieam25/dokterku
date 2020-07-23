@@ -11,11 +11,11 @@ import {BackIconWhite, ProfilMan} from '../../../assets';
 import {Spacing} from '../../atoms';
 
 const width = Dimensions.get('window').width;
-const HeaderChatting = () => {
+const HeaderChatting = ({onPress}) => {
   return (
     <View>
       <View style={styles.wrapper}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
           <Image source={BackIconWhite} style={styles.icon} />
         </TouchableOpacity>
         <View style={styles.wrapperProfil}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import {
   DokterUmum,
   DokterAnak,
@@ -7,7 +7,7 @@ import {
   DokterObat,
 } from '../../../assets';
 
-const CardCategories = ({title}) => {
+const CardCategories = ({title, onPress}) => {
   const Logo = () => {
     if (title === 'Dokter Umum') {
       return <Image source={DokterUmum} style={styles.image} />;
@@ -24,12 +24,12 @@ const CardCategories = ({title}) => {
     return <Image source={DokterUmum} style={styles.image} />;
   };
   return (
-    <View style={styles.wrapper}>
+    <TouchableOpacity style={styles.wrapper} onPress={onPress}>
       <View style={styles.wrapper2}>
         <Text style={styles.title}>{title}</Text>
       </View>
       <Logo />
-    </View>
+    </TouchableOpacity>
   );
 };
 

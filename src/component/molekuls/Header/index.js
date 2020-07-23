@@ -5,7 +5,7 @@ import HeaderChatting from './HeaderChatting';
 
 const Header = ({onPress, title, type}) => {
   if (type === 'chatting') {
-    return <HeaderChatting />;
+    return <HeaderChatting onPress={onPress} />;
   }
   return (
     <View style={styles.header}>

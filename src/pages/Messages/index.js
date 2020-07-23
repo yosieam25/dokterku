@@ -4,15 +4,17 @@ import {Spacing, CardMessage} from '../../component';
 
 const Messages = ({navigation}) => {
   return (
-    <ScrollView style={styles.wrapper}>
-      <Spacing height={25} />
-      <Text style={styles.messages}>Messages</Text>
-      <CardMessage
-        onPress={() => {
-          navigation.navigate('Chatting');
-        }}
-      />
-    </ScrollView>
+    <View style={styles.content}>
+      <ScrollView style={styles.wrapper}>
+        <Spacing height={25} />
+        <Text style={styles.messages}>Messages</Text>
+        <CardMessage
+          onPress={() => {
+            navigation.navigate('Chatting');
+          }}
+        />
+      </ScrollView>
+    </View>
   );
 };
 
@@ -25,5 +27,8 @@ const styles = StyleSheet.create({
   messages: {
     fontSize: 36,
     fontWeight: 'bold',
+  },
+  content: {
+    backgroundColor: 'white',
   },
 });

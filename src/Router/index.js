@@ -11,6 +11,7 @@ import {
   Hospitals,
   Messages,
   Chatting,
+  ListDoctor,
 } from '../pages';
 import {BottomNavigation} from '../component';
 
@@ -63,6 +64,11 @@ const Router = () => {
       <Stack.Screen
         name="Chatting"
         component={Chatting}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ListDoctor"
+        component={ListDoctor}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
