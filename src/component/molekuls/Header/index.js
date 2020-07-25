@@ -7,6 +7,9 @@ const Header = ({onPress, title, type}) => {
   if (type === 'chatting') {
     return <HeaderChatting onPress={onPress} />;
   }
+  if (type === 'detaildoctor') {
+    return <HeaderDetailDoctor />;
+  }
   return (
     <View style={styles.header}>
       <BackIcon onPress={onPress} />

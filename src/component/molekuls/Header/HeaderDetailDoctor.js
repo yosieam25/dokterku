@@ -1,16 +1,14 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Header} from '../../component';
 
-const DetailDoctor = () => {
+const HeaderDetailDoctor = () => {
   return (
     <View>
-      <Header type="detaildoctor" />
       <Text>hai</Text>
     </View>
   );
 };
 
-export default DetailDoctor;
+export default HeaderDetailDoctor;
 
 const styles = StyleSheet.create({});

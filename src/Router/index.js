@@ -12,6 +12,7 @@ import {
   Messages,
   Chatting,
   ListDoctor,
+  DetailDoctor,
 } from '../pages';
 import {BottomNavigation} from '../component';
 
@@ -69,6 +70,11 @@ const Router = () => {
       <Stack.Screen
         name="ListDoctor"
         component={ListDoctor}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="DetailDoctor"
+        component={DetailDoctor}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
