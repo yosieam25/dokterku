@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {Input, Spacing, Button, Header} from '../../component';
+import {ScrollView, StyleSheet, View} from 'react-native';
+import {Button, Header, Input, Spacing} from '../../component';
 
 const SignUp = ({navigation}) => {
   return (
@@ -11,24 +11,26 @@ const SignUp = ({navigation}) => {
         }}
         title="Daftar Akun"
       />
-      <View style={styles.container}>
-        <Input label="Nama Lengkap" />
-        <Spacing height={27} />
-        <Input label="Pekerjaan" />
-        <Spacing height={27} />
-        <Input label="Email" />
-        <Spacing height={27} />
-        <Input label="Password" type={true} />
-        <Spacing height={39} />
-        <View style={styles.containerButton}>
-          <Button
-            title="Sign Up"
-            onPress={() => {
-              navigation.navigate('UploadPhoto');
-            }}
-          />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.container}>
+          <Input label="Nama Lengkap" />
+          <Spacing height={27} />
+          <Input label="Pekerjaan" />
+          <Spacing height={27} />
+          <Input label="Email" />
+          <Spacing height={27} />
+          <Input label="Password" type={true} />
+          <Spacing height={39} />
+          <View style={styles.containerButton}>
+            <Button
+              title="Sign Up"
+              onPress={() => {
+                navigation.navigate('UploadPhoto');
+              }}
+            />
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 };
