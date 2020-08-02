@@ -1,8 +1,18 @@
 import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {Button, Header, Input, Spacing} from '../../component';
+import {useForm} from '../../utils/useForm';
 
 const SignUp = ({navigation}) => {
+  const [form, setForm] = useForm({
+    fullname: '',
+    job: '',
+    email: '',
+    password: '',
+  });
+  const formRegis = () => {
+    console.log(form());
+  };
   return (
     <View>
       <Header
@@ -13,7 +23,7 @@ const SignUp = ({navigation}) => {
       />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
-          <Input label="Nama Lengkap" />
+          <Input label="Nama Lengkap" value={form.fullname} />
           <Spacing height={27} />
           <Input label="Pekerjaan" />
           <Spacing height={27} />
@@ -22,12 +32,7 @@ const SignUp = ({navigation}) => {
           <Input label="Password" type={true} />
           <Spacing height={39} />
           <View style={styles.containerButton}>
-            <Button
-              title="Sign Up"
-              onPress={() => {
-                navigation.navigate('UploadPhoto');
-              }}
-            />
+            <Button title="Sign Up" onPress={formRegis} />
           </View>
         </View>
       </ScrollView>
