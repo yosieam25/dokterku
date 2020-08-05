@@ -5,13 +5,13 @@ import {useForm} from '../../utils/useForm';
 
 const SignUp = ({navigation}) => {
   const [form, setForm] = useForm({
-    fullname: '',
+    fullName: '',
     job: '',
     email: '',
     password: '',
   });
   const formRegis = () => {
-    console.log(form());
+    console.log(form);
   };
   return (
     <View>
@@ -23,13 +23,30 @@ const SignUp = ({navigation}) => {
       />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
-          <Input label="Nama Lengkap" value={form.fullname} />
+          <Input
+            label="Nama Lengkap"
+            value={form.fullName}
+            onChangeText={value => setForm('fullName', value)}
+          />
           <Spacing height={27} />
-          <Input label="Pekerjaan" />
+          <Input
+            label="Pekerjaan"
+            value={form.job}
+            onChangeText={value => setForm('job', value)}
+          />
           <Spacing height={27} />
-          <Input label="Email" />
+          <Input
+            label="Email"
+            value={form.email}
+            onChangeText={value => setForm('email', value)}
+          />
           <Spacing height={27} />
-          <Input label="Password" type={true} />
+          <Input
+            label="Password"
+            type={true}
+            value={form.password}
+            onChangeText={value => setForm('password', value)}
+          />
           <Spacing height={39} />
           <View style={styles.containerButton}>
             <Button title="Sign Up" onPress={formRegis} />
