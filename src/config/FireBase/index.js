@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 
-const firebaseConfig = {
+firebase.initializeApp({
   apiKey: 'AIzaSyDHEbD0oVQQFEIofE0H0VxN8rHrgzb30fI',
   authDomain: 'dokterku-a8d32.firebaseapp.com',
   databaseURL: 'https://dokterku-a8d32.firebaseio.com',
@@ -8,8 +8,8 @@ const firebaseConfig = {
   storageBucket: 'dokterku-a8d32.appspot.com',
   messagingSenderId: '169377730654',
   appId: '1:169377730654:web:66a736a070723f147b64cf',
-};
+});
 
-const FireBase = firebaseConfig;
+const FireBase = firebase;
 
 export default FireBase;

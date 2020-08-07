@@ -5,6 +5,7 @@ import Banner from './Banner';
 import CardCategories from './CardCategories';
 import CardDoctor from './CardDoctor';
 import CardMessage from './CardMessage';
+import Loading from './Loading';
 
 export {
   Header,
@@ -14,4 +15,5 @@ export {
   CardCategories,
   CardDoctor,
   CardMessage,
+  Loading,
 };
