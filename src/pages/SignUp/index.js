@@ -3,6 +3,7 @@ import {ScrollView, StyleSheet, View} from 'react-native';
 import {Button, Header, Input, Spacing, Loading} from '../../component';
 import {useForm} from '../../utils/useForm';
 import {FireBase} from '../../config';
+import {showMessage, hideMessage} from 'react-native-flash-message';
 
 const SignUp = ({navigation}) => {
   const [form, setForm] = useForm({
@@ -19,6 +20,7 @@ const SignUp = ({navigation}) => {
       .createUserWithEmailAndPassword(form.email, form.password)
       .then(success => {
         setNilai(false);
+        setForm('reset');
         console.log('success', success);
       })
       .catch(error => {
@@ -26,6 +28,11 @@ const SignUp = ({navigation}) => {
         var errorMessage = error.message;
         console.log('error: ', errorMessage);
         setNilai(false);
+        showMessage({
+          message: errorMessage,
+          backgroundColor: 'red',
+          color: 'white',
+        });
         // ...
       });
   };
