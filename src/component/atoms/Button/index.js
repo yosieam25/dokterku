@@ -1,7 +1,14 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
-const Button = ({type, title, onPress}) => {
+const Button = ({type, title, onPress, disable}) => {
+  if (disable) {
+    return (
+      <View style={styles.disable} disable>
+        <Text style={styles.title(type)}> {title} </Text>
+      </View>
+    );
+  }
   return (
     <TouchableOpacity style={styles.container(type)} onPress={onPress}>
       <Text style={styles.title(type)}> {title} </Text>
@@ -24,4 +31,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   }),
+  disable: {
+    width: 305,
+    height: 47,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#DCDCDC',
+  },
 });

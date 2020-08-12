@@ -21,6 +21,13 @@ const SignUp = ({navigation}) => {
       .then(success => {
         setNilai(false);
         setForm('reset');
+        const data = {
+          fullName: form.fullName,
+          job: form.job,
+        };
+        FireBase.database()
+          .ref('users/' + success.user.uid + '/')
+          .set(data);
         console.log('success', success);
       })
       .catch(error => {

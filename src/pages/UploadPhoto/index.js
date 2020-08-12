@@ -21,7 +21,7 @@ const UploadPhoto = ({navigation}) => {
         <Text style={styles.job}>FrontEnd Progammer</Text>
       </View>
       <View style={styles.comtainerButton}>
-        <Button title="continue" />
+        <Button title="continue" disable={true} />
         <Spacing height={26} />
         <Anchor title="Skip for this" />
       </View>

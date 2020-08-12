@@ -31,7 +31,7 @@ const MainApp = () => {
 
 const Router = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="UploadPhoto">
       <Stack.Screen
         name="SplashScreen"
         component={SplashScreen}
