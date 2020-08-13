@@ -1,9 +1,28 @@
-import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {Image, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {AddPhoto, UploadPhotoImg} from '../../assets';
 import {Anchor, Button, Header, Spacing} from '../../component';
+import ImagePicker from 'react-native-image-picker';
+import {showMessage} from 'react-native-flash-message';
 
 const UploadPhoto = ({navigation}) => {
+  const [hasPhoto, setHasPhoto] = useState(false);
+  const [photo, setPhoto] = useState(UploadPhotoImg);
+  const ImageUpload = () => {
+    ImagePicker.launchImageLibrary({}, response => {
+      if (response.didCancel || response.error) {
+        showMessage({
+          message: 'Anda belum mengupload photo anda!',
+          backgroundColor: '#ADD8E6',
+          color: 'white',
+        });
+      } else {
+        const source = {uri: response.uri};
+        setPhoto(source);
+        setHasPhoto(true);
+      }
+    });
+  };
   return (
     <View style={styles.content}>
       <Header
@@ -13,15 +32,15 @@ const UploadPhoto = ({navigation}) => {
         title="Photo Profil"
       />
       <View style={styles.container}>
-        <View style={styles.border}>
-          <Image source={UploadPhotoImg} style={styles.ImageUpload} />
+        <TouchableOpacity style={styles.border} onPress={ImageUpload}>
+          <Image source={photo} style={styles.ImageUpload} />
           <Image source={AddPhoto} style={styles.imageAdd} />
-        </View>
+        </TouchableOpacity>
         <Text style={styles.name}>Yosie Abdul Muzanil</Text>
         <Text style={styles.job}>FrontEnd Progammer</Text>
       </View>
       <View style={styles.comtainerButton}>
-        <Button title="continue" disable={true} />
+        <Button title="continue" disable={!hasPhoto} />
         <Spacing height={26} />
         <Anchor title="Skip for this" />
       </View>
@@ -36,6 +55,7 @@ const styles = StyleSheet.create({
   ImageUpload: {
     width: 150,
     height: 150,
+    borderRadius: 150 / 2,
   },
   imageAdd: {
     width: 50,
