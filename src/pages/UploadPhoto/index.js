@@ -4,12 +4,15 @@ import {AddPhoto, UploadPhotoImg} from '../../assets';
 import {Anchor, Button, Header, Spacing} from '../../component';
 import ImagePicker from 'react-native-image-picker';
 import {showMessage} from 'react-native-flash-message';
+import {FireBase} from '../../config';
 
-const UploadPhoto = ({navigation}) => {
+const UploadPhoto = ({navigation, route}) => {
+  const [photoDB, setPhotoDB] = useState('');
+  const {fullName, job, uid} = route.params;
   const [hasPhoto, setHasPhoto] = useState(false);
   const [photo, setPhoto] = useState(UploadPhotoImg);
   const ImageUpload = () => {
-    ImagePicker.launchImageLibrary({}, response => {
+    ImagePicker.launchImageLibrary({quality: 0.5}, response => {
       if (response.didCancel || response.error) {
         showMessage({
           message: 'Anda belum mengupload photo anda!',
@@ -20,8 +23,15 @@ const UploadPhoto = ({navigation}) => {
         const source = {uri: response.uri};
         setPhoto(source);
         setHasPhoto(true);
+        setPhotoDB(`data:${response.type};base64,${response.data}`);
       }
     });
+  };
+  const UploadAndContinue = () => {
+    FireBase.database()
+      .ref('users/' + uid + '/')
+      .update({photo: photoDB});
+    navigation.navigate('MainApp');
   };
   return (
     <View style={styles.content}>
@@ -36,11 +46,15 @@ const UploadPhoto = ({navigation}) => {
           <Image source={photo} style={styles.ImageUpload} />
           <Image source={AddPhoto} style={styles.imageAdd} />
         </TouchableOpacity>
-        <Text style={styles.name}>Yosie Abdul Muzanil</Text>
-        <Text style={styles.job}>FrontEnd Progammer</Text>
+        <Text style={styles.name}>{fullName}</Text>
+        <Text style={styles.job}>{job}</Text>
       </View>
       <View style={styles.comtainerButton}>
-        <Button title="continue" disable={!hasPhoto} />
+        <Button
+          title="continue"
+          disable={!hasPhoto}
+          onPress={UploadAndContinue}
+        />
         <Spacing height={26} />
         <Anchor title="Skip for this" />
       </View>

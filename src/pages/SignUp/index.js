@@ -15,37 +15,36 @@ const SignUp = ({navigation}) => {
   const [nilai, setNilai] = useState(false);
   const formRegis = () => {
     console.log(form);
-    // setNilai(true);
-    // storeData('user', form);
-    getData('user').then(res => {
-      console.log('data:', res);
-    });
-    // FireBase.auth()
-    //   .createUserWithEmailAndPassword(form.email, form.password)
-    //   .then(success => {
-    //     setNilai(false);
-    //     setForm('reset');
-    //     const data = {
-    //       fullName: form.fullName,
-    //       job: form.job,
-    //     };
-    //     FireBase.database()
-    //       .ref('users/' + success.user.uid + '/')
-    //       .set(data);
-    //     console.log('success', success);
-    //   })
-    //   .catch(error => {
-    //     // Handle Errors here.
-    //     var errorMessage = error.message;
-    //     console.log('error: ', errorMessage);
-    //     setNilai(false);
-    //     showMessage({
-    //       message: errorMessage,
-    //       backgroundColor: 'red',
-    //       color: 'white',
-    //     });
-    //     // ...
-    //   });
+    setNilai(true);
+    FireBase.auth()
+      .createUserWithEmailAndPassword(form.email, form.password)
+      .then(success => {
+        setNilai(false);
+        setForm('reset');
+        const data = {
+          fullName: form.fullName,
+          job: form.job,
+          uid: success.user.uid,
+        };
+        FireBase.database()
+          .ref('users/' + success.user.uid + '/')
+          .set(data);
+        storeData('user', data);
+        navigation.navigate('UploadPhoto', data);
+        console.log('success', success);
+      })
+      .catch(error => {
+        // Handle Errors here.
+        var errorMessage = error.message;
+        console.log('error: ', errorMessage);
+        setNilai(false);
+        showMessage({
+          message: errorMessage,
+          backgroundColor: 'red',
+          color: 'white',
+        });
+        // ...
+      });
   };
   return (
     <>
