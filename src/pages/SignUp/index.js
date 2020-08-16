@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {Button, Header, Input, Spacing, Loading} from '../../component';
-import {useForm} from '../../utils/useForm';
 import {FireBase} from '../../config';
 import {showMessage, hideMessage} from 'react-native-flash-message';
+import {useForm, storeData, getData} from '../../utils';
 
 const SignUp = ({navigation}) => {
   const [form, setForm] = useForm({
@@ -15,33 +15,37 @@ const SignUp = ({navigation}) => {
   const [nilai, setNilai] = useState(false);
   const formRegis = () => {
     console.log(form);
-    setNilai(true);
-    FireBase.auth()
-      .createUserWithEmailAndPassword(form.email, form.password)
-      .then(success => {
-        setNilai(false);
-        setForm('reset');
-        const data = {
-          fullName: form.fullName,
-          job: form.job,
-        };
-        FireBase.database()
-          .ref('users/' + success.user.uid + '/')
-          .set(data);
-        console.log('success', success);
-      })
-      .catch(error => {
-        // Handle Errors here.
-        var errorMessage = error.message;
-        console.log('error: ', errorMessage);
-        setNilai(false);
-        showMessage({
-          message: errorMessage,
-          backgroundColor: 'red',
-          color: 'white',
-        });
-        // ...
-      });
+    // setNilai(true);
+    // storeData('user', form);
+    getData('user').then(res => {
+      console.log('data:', res);
+    });
+    // FireBase.auth()
+    //   .createUserWithEmailAndPassword(form.email, form.password)
+    //   .then(success => {
+    //     setNilai(false);
+    //     setForm('reset');
+    //     const data = {
+    //       fullName: form.fullName,
+    //       job: form.job,
+    //     };
+    //     FireBase.database()
+    //       .ref('users/' + success.user.uid + '/')
+    //       .set(data);
+    //     console.log('success', success);
+    //   })
+    //   .catch(error => {
+    //     // Handle Errors here.
+    //     var errorMessage = error.message;
+    //     console.log('error: ', errorMessage);
+    //     setNilai(false);
+    //     showMessage({
+    //       message: errorMessage,
+    //       backgroundColor: 'red',
+    //       color: 'white',
+    //     });
+    //     // ...
+    //   });
   };
   return (
     <>
