@@ -1,14 +1,29 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
+import {UploadPhoto} from '../../../assets';
+import {getData} from '../../../utils';
 
 const Profil = () => {
+  const [profil, setProfil] = useState({
+    fullName: '',
+    job: '',
+    photo: UploadPhoto,
+  });
+  useEffect(() => {
+    getData('user').then(res => {
+      console.log('data', res);
+      const data = res;
+      data.photo = {uri: data.photo};
+      setProfil(data);
+    });
+  }, []);
   return (
     <View style={styles.container}>
       <View>
         <Text style={styles.hello}>Hello</Text>
-        <Text style={styles.name}>Yosie Abdul Muzanil</Text>
+        <Text style={styles.name}>{profil.fullName}</Text>
       </View>
-      <View style={styles.wrapperPhoto} />
+      <Image source={profil.photo} style={styles.wrapperPhoto} />
     </View>
   );
 };

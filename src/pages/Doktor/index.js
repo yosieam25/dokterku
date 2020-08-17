@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import {
   Profil,
@@ -10,11 +10,6 @@ import {
 import {getData} from '../../utils';
 
 const Doktor = ({navigation}) => {
-  useEffect(() => {
-    getData('user').then(res => {
-      console.log('data: ', res);
-    });
-  }, []);
   return (
     <ScrollView style={styles.wrapper} showsVerticalScrollIndicator={false}>
       <Profil />
