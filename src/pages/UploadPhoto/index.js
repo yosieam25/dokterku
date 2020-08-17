@@ -5,6 +5,7 @@ import {Anchor, Button, Header, Spacing} from '../../component';
 import ImagePicker from 'react-native-image-picker';
 import {showMessage} from 'react-native-flash-message';
 import {FireBase} from '../../config';
+import {storeData} from '../../utils';
 
 const UploadPhoto = ({navigation, route}) => {
   const [photoDB, setPhotoDB] = useState('');
@@ -31,6 +32,10 @@ const UploadPhoto = ({navigation, route}) => {
     FireBase.database()
       .ref('users/' + uid + '/')
       .update({photo: photoDB});
+
+    const data = route.params;
+    data.photo = photoDB;
+    storeData('user', data);
     navigation.navigate('MainApp');
   };
   return (
