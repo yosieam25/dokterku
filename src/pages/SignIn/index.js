@@ -2,10 +2,42 @@ import React from 'react';
 import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
 import {BG_LI, Dokterku} from '../../assets';
 import {Anchor, Button, Input, Spacing} from '../../component';
+import {useForm, storeData} from '../../utils';
+import {FireBase} from '../../config';
+import {showMessage} from 'react-native-flash-message';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const SignIn = ({navigation}) => {
+  const [form, setForm] = useForm({
+    email: '',
+    password: '',
+  });
+
+  const signIn = () => {
+    FireBase.auth()
+      .signInWithEmailAndPassword(form.email, form.password)
+      .then(res => {
+        console.log('data:', res);
+        FireBase.database()
+          .ref(`users/${res.user.uid}/`)
+          .once('value')
+          .then(resDB => {
+            if (resDB.val()) {
+              storeData('user', resDB);
+            }
+          });
+        navigation.replace('MainApp');
+      })
+      .catch(error => {
+        var errorMessage = error.message;
+        showMessage({
+          message: errorMessage,
+          backgroundColor: 'red',
+          color: 'white',
+        });
+      });
+  };
   return (
     <View>
       <Image source={BG_LI} style={styles.page} />
@@ -13,19 +45,23 @@ const SignIn = ({navigation}) => {
         <Image source={Dokterku} />
         <Text style={styles.title}>Masuk dan mulai berkonsultasi</Text>
         <View style={styles.card}>
-          <Input label="Email Address" />
+          <Input
+            label="Email Address"
+            value={form.email}
+            onChangeText={value => setForm('email', value)}
+          />
           <Spacing height={24} />
-          <Input label="Password" type={true} />
+          <Input
+            label="Password"
+            type={true}
+            value={form.password}
+            onChangeText={value => setForm('password', value)}
+          />
           <Spacing height={24} />
           <Anchor title="Lupa Password" />
           <Spacing height={33} />
           <View style={{alignItems: 'center'}}>
-            <Button
-              title="Sign In"
-              onPress={() => {
-                navigation.replace('MainApp');
-              }}
-            />
+            <Button title="Sign In" onPress={signIn} />
             <Spacing height={24} />
             <Anchor title="Create New Account" type="secondary" />
           </View>

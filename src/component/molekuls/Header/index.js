@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {BackIcon} from '../../../assets';
 import HeaderChatting from './HeaderChatting';
+import HeaderDetailDoctor from './HeaderDetailDoctor';
 
 const Header = ({onPress, title, type}) => {
   if (type === 'chatting') {
