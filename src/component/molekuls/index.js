@@ -6,6 +6,7 @@ import CardCategories from './CardCategories';
 import CardDoctor from './CardDoctor';
 import CardMessage from './CardMessage';
 import Loading from './Loading';
+import ToolsProfil from './ToolsProfil';
 
 export {
   Header,
@@ -16,4 +17,5 @@ export {
   CardDoctor,
   CardMessage,
   Loading,
+  ToolsProfil,
 };
