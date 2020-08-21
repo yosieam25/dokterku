@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
-import {Header, Spacing} from '../../component';
+import {Header, Spacing, Button} from '../../component';
 import {ProfilMan, Star} from '../../assets';
 
 const DetailDoctor = () => {
@@ -30,7 +30,48 @@ const DetailDoctor = () => {
             <Image source={ProfilMan} style={{width: 165, height: 200}} />
           </View>
         </View>
-        <Rating />
+        <View
+          style={{
+            alignItems: 'flex-end',
+            paddingRight: 23,
+          }}>
+          <Rating />
+        </View>
+        <View style={{marginBottom: 20, marginTop: 40}}>
+          <Text style={{fontSize: 23, fontWeight: 'bold', marginBottom: 10}}>
+            Tentang
+          </Text>
+          <Text style={{fontSize: 18, opacity: 0.5}}>
+            Dr Reza Renaldi adalah dokter umum yang sudah memiliki pengalman 5
+            tahun lebih di bidang kedokteran
+          </Text>
+        </View>
+        <View style={{marginBottom: 20}}>
+          <Text style={{fontSize: 23, fontWeight: 'bold', marginBottom: 10}}>
+            Tempat Praktek
+          </Text>
+          <Text style={{fontSize: 18, opacity: 0.5}}>
+            Rumah Sakit Umum, Bandung
+          </Text>
+        </View>
+        <View style={{marginBottom: 20}}>
+          <Text style={{fontSize: 23, fontWeight: 'bold', marginBottom: 10}}>
+            Jam Kerja
+          </Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={{fontSize: 18, opacity: 0.5, alignSelf: 'center'}}>
+              Senin - Jum'at, 09.00 - 18.00
+            </Text>
+            <Text style={styles.statusKonsultasi}>Buka</Text>
+          </View>
+        </View>
+        <View
+          style={{
+            alignItems: 'center',
+            marginTop: 30,
+          }}>
+          <Button title="Konsultasi" />
+        </View>
       </View>
     </View>
   );
@@ -57,5 +98,13 @@ const styles = StyleSheet.create({
   star: {
     width: 24,
     height: 24,
+  },
+  statusKonsultasi: {
+    backgroundColor: '#E3EEFF',
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    marginLeft: 10,
+    fontSize: 18,
   },
 });
