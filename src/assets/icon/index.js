@@ -11,6 +11,8 @@ import BackIconWhite from './BackIconWhite.png';
 import Send from './Send.png';
 import CancelPhoto from './CancelPhoto.png';
 import BackIconDetailDoctor from './BackIconDetailDoctor.png';
+import IconEditprofil from './IconEditProfil.png';
+import IconRightEditProfil from './IconRightEditProfil.jpg';
 
 export {
   BackIcon,
@@ -26,4 +28,6 @@ export {
   Send,
   CancelPhoto,
   BackIconDetailDoctor,
+  IconEditprofil,
+  IconRightEditProfil,
 };

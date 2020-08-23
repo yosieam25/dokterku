@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Header} from '../../component';
+import {Header, ToolsProfil} from '../../component';
 
 const Profil = () => {
   return (
@@ -24,7 +24,7 @@ const Profil = () => {
         </Text>
       </View>
       <View>
-        <Text>hi</Text>
+        <ToolsProfil />
       </View>
     </View>
   );
