@@ -32,7 +32,7 @@ const MainApp = () => {
 
 const Router = () => {
   return (
-    <Stack.Navigator initialRouteName="Profil">
+    <Stack.Navigator>
       <Stack.Screen
         name="SplashScreen"
         component={SplashScreen}

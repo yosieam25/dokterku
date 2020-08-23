@@ -12,7 +12,7 @@ import {getData} from '../../utils';
 const Doktor = ({navigation}) => {
   return (
     <ScrollView style={styles.wrapper} showsVerticalScrollIndicator={false}>
-      <Profil />
+      <Profil onPress={() => navigation.navigate('Profil')} />
       <Spacing height={29} />
       <Banner />
       <Spacing height={22} />

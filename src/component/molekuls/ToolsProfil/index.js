@@ -9,6 +9,9 @@ const ToolsProfil = () => {
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginHorizontal: 26,
+        paddingBottom: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: 'rgba(0,0,0,0.1)',
       }}>
       <View>
         <Image source={IconEditprofil} />

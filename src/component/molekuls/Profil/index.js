@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import {UploadPhoto} from '../../../assets';
 import {getData} from '../../../utils';
 
-const Profil = () => {
+const Profil = ({onPress}) => {
   const [profil, setProfil] = useState({
     fullName: '',
     job: '',
@@ -23,7 +23,9 @@ const Profil = () => {
         <Text style={styles.hello}>Hello</Text>
         <Text style={styles.name}>{profil.fullName}</Text>
       </View>
-      <Image source={profil.photo} style={styles.wrapperPhoto} />
+      <TouchableOpacity onPress={onPress}>
+        <Image source={profil.photo} style={styles.wrapperPhoto} />
+      </TouchableOpacity>
     </View>
   );
 };
