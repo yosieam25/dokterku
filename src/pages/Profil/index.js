@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Header, ToolsProfil} from '../../component';
+import {getData} from '../../utils';
 
 const Profil = () => {
+  useEffect(() => {
+    getData('user').then(res => {
+      console.log(res);
+    });
+  }, []);
   return (
     <View style={{backgroundColor: 'white', flex: 1}}>
       <View style={{alignItems: 'center'}}>

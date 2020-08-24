@@ -7,7 +7,6 @@ import {
   CardCategories,
   CardDoctor,
 } from '../../component';
-import {getData} from '../../utils';
 
 const Doktor = ({navigation}) => {
   return (

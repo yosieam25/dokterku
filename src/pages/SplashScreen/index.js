@@ -1,13 +1,20 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, Image, View, Text} from 'react-native';
 import {Dokterku_logo} from '../../assets';
+import {FireBase} from '../../config';
 
 export default function SplashScreen({navigation}) {
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('GetStarted');
+      FireBase.auth().onAuthStateChanged(user => {
+        if (user) {
+          navigation.replace('MainApp');
+        } else {
+          navigation.replace('GetStarted');
+        }
+      });
     }, 3000);
-  }, []);
+  }, [navigation]);
   return (
     <View style={styles.page}>
       <Image source={Dokterku_logo} style={styles.logo} />
