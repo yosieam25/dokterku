@@ -1,19 +1,29 @@
-import React, {useEffect} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import {Header, ToolsProfil} from '../../component';
 import {getData} from '../../utils';
+import {UploadPhotoImg} from '../../assets';
 
 const Profil = () => {
+  const [profil, setProfil] = useState({
+    fullName: '',
+    job: '',
+    photo: UploadPhotoImg,
+  });
   useEffect(() => {
     getData('user').then(res => {
       console.log(res);
+      const data = res;
+      data.photo = {uri: data.photo};
+      setProfil(data);
     });
   }, []);
   return (
     <View style={{backgroundColor: 'white', flex: 1}}>
       <View style={{alignItems: 'center'}}>
         <Header title="Profil" />
-        <View
+        <Image
+          source={profil.photo}
           style={{
             width: 150,
             height: 150,
@@ -23,10 +33,10 @@ const Profil = () => {
           }}
         />
         <Text style={{fontSize: 24, fontWeight: 'bold', marginTop: 44}}>
-          Yosie Abdul Muzanil
+          {profil.fullName}
         </Text>
         <Text style={{fontSize: 18, opacity: 0.5, marginTop: 7}}>
-          Frontend Developer
+          {profil.job}
         </Text>
       </View>
       <View>
