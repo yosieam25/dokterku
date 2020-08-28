@@ -1,10 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import {IconEditprofil, IconRightEditProfil} from '../../../assets';
 
-const ToolsProfil = () => {
+const ToolsProfil = ({onPress}) => {
   return (
-    <View
+    <TouchableOpacity
+      onPress={onPress}
       style={{
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -23,7 +24,7 @@ const ToolsProfil = () => {
       <View style={{alignSelf: 'center'}}>
         <Image source={IconRightEditProfil} />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

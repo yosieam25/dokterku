@@ -24,6 +24,7 @@ const SignUp = ({navigation}) => {
         const data = {
           fullName: form.fullName,
           job: form.job,
+          email: form.email,
           uid: success.user.uid,
         };
         FireBase.database()

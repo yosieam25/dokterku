@@ -10,6 +10,7 @@ import Chatting from './Chatting';
 import ListDoctor from './ListDoctor';
 import DetailDoctor from './DetailDoctor';
 import Profil from './Profil';
+import EditProfil from './EditProfil';
 
 export {
   SplashScreen,
@@ -24,4 +25,5 @@ export {
   ListDoctor,
   DetailDoctor,
   Profil,
+  EditProfil,
 };

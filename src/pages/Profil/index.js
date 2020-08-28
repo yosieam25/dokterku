@@ -4,7 +4,7 @@ import {Header, ToolsProfil} from '../../component';
 import {getData} from '../../utils';
 import {UploadPhotoImg} from '../../assets';
 
-const Profil = () => {
+const Profil = ({navigation}) => {
   const [profil, setProfil] = useState({
     fullName: '',
     job: '',
@@ -40,7 +40,7 @@ const Profil = () => {
         </Text>
       </View>
       <View>
-        <ToolsProfil />
+        <ToolsProfil onPress={() => navigation.navigate('EditProfil')} />
       </View>
     </View>
   );
